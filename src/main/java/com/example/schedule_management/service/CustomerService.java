@@ -1,8 +1,8 @@
 package com.example.schedule_management.service;
 
-import org.springframework.stereotype.Service;
 import com.example.schedule_management.models.CustomersModel;
 import com.example.schedule_management.repository.CustomerRepository;
+import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
@@ -18,7 +18,7 @@ public class CustomerService {
         return repository.findAll();
     }
 
-    public CustomersModel createCustomer(CustomersModel customer) {
-        return repository.save(customer);
+    public CustomersModel createCustomer(CustomersModel customersModel) {
+        return repository.save(customersModel);
     }
 }

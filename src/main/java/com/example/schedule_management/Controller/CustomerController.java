@@ -10,19 +10,19 @@ import java.util.List;
 @RequestMapping("/customers")
 public class CustomerController {
 
-    private final CustomerService service;
+    private final CustomerService customerService;
 
-    public CustomerController(CustomerService service) {
-        this.service = service;
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
     }
 
-    @GetMapping
-    public List<CustomersModel> getAllCustomersModel() {
-        return service.getAllCustomers();
+   @GetMapping
+    public List<CustomersModel> getAllCustomers() {
+        return customerService.getAllCustomers();
     }
 
     @PostMapping
     public CustomersModel createCustomer(@RequestBody CustomersModel customersModel) {
-        return service.createCustomer(customersModel);
+        return customerService.createCustomer(customersModel);
     }
 }
