@@ -1,7 +1,7 @@
-package com.example.schedule_management.Controller;
+package com.example.schedule_management.controllers;
 
-import com.example.schedule_management.models.CustomersModel;
-import com.example.schedule_management.service.CustomerService;
+import com.example.schedule_management.models.CustomerModel;
+import com.example.schedule_management.services.CustomerService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,12 +17,12 @@ public class CustomerController {
     }
 
    @GetMapping
-    public List<CustomersModel> getAllCustomers() {
+    public List<CustomerModel> getAllCustomers() {
         return customerService.getAllCustomers();
     }
 
     @PostMapping
-    public CustomersModel createCustomer(@RequestBody CustomersModel customersModel) {
+    public CustomerModel createCustomer(@RequestBody CustomerModel customersModel) {
         return customerService.createCustomer(customersModel);
     }
 }
