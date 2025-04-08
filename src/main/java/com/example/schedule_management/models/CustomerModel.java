@@ -16,7 +16,7 @@ public class CustomerModel {
     private String phoneNumber;
 
 
-    public void Customer(Long id, String firstName, String lastName, String email, String phoneNumber) {
+    public void CustomerModel(Long id, String firstName, String lastName, String email, String phoneNumber) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
