@@ -2,6 +2,8 @@ package com.example.schedule_management.models;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
     @Table(name = "professionals")
 public class ProfessionalModel {
@@ -14,6 +16,14 @@ public class ProfessionalModel {
     private String lastName;
     private String email;
     private String specialty;
+    @ManyToMany
+    @JoinTable(
+            name = "professionals_services",
+            joinColumns = @JoinColumn(
+                    name = "professionals_id"
+            ),inverseJoinColumns = @JoinColumn(name = "services_id")
+    )
+    private Set<ServicesModel> services;
 
 
     public void Customer(Long id, String firstName, String lastName, String email, String specialty) {

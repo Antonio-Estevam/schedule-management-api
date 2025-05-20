@@ -1,6 +1,7 @@
 package com.example.schedule_management.models;
-
 import jakarta.persistence.*;
+import java.sql.Time;
+import java.util.Set;
 
 @Entity
 @Table(name = "services")
@@ -9,12 +10,15 @@ public class ServicesModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private String description;
     private float price;
-    private int duration;
+    private Time duration;
+    @ManyToMany(mappedBy = "services")
+    private Set<ProfessionalModel> professionals;
 
-    public void ServicesModel(Long id, String name,String description,float price, int duration){
+    public void ServicesModel(Long id, String name,String description,float price, Time duration){
         this.id = id;
         this.name = name;
         this.description = description;
@@ -54,11 +58,11 @@ public class ServicesModel {
         this.price = price;
     }
 
-    public int getDuration() {
+    public Time getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(Time duration) {
         this.duration = duration;
     }
 }
